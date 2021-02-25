@@ -12,6 +12,7 @@ from arithmetic import (add, subtract, multiply, divide, square, cube,
 #       if the token is otherwise valid, then do the thing
 #       if the token is broken, throw an error
 #   evaluate the correct expression using the rest of the tokens
+#   make sure end result is float (except for mod)
 
 def get_user_input():
     user_input = input('> ')
@@ -24,23 +25,24 @@ while tokens[0] != 'q':
     tokens = get_user_input()
 
     if tokens[0] == '+':
-        pass
+        result = add(float(tokens[1]),float(tokens[2]))
     elif tokens[0] == '-':
-        pass
+         result = subtract(float(tokens[1]),float(tokens[2]))
     elif tokens[0] == '*':
-        pass
+        result = multiply(float(tokens[1]),float(tokens[2]))
     elif tokens[0] == '/':
-        pass
+        result = divide(float(tokens[1]),float(tokens[2]))
     elif tokens[0] == 'square':
-        pass
+        result = square(float(tokens[1]))
     elif tokens[0] == 'cube':
-        pass
+        result = cube(float(tokens[1]))
     elif tokens[0] == 'pow' or tokens[0] == 'power':
-        pass
+        result = power(float(tokens[1]),float(tokens[2]))
     elif tokens[0] == 'mod' or tokens[0] == '%':
-        pass
+        result = int(mod(float(tokens[1]),float(tokens[2]))) # result should be int!
     else:
-        print('that is not valid input - please try again.')
+        result = 'that is not valid input - please try again.'
+    print(result)
 
 print('okay, goodbye!') 
 
